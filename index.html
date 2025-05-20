@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage of pengo820</title>
+    <title>Blog of pengo820</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -166,17 +166,18 @@
 </head>
 <body>
     <header>
-        <h1>Webpage of pengo820</h1>
+        <h1>Blog of pengo820</h1>
         <p>Insights, ideas, and projects from my world</p>
     </header>
 
     <nav>
-        <a href="https://pengo820.org">Home</a>
+        <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
-        <a href="https://github.com/pengo820/my-webpage" target="_blank">GitHub</a>
-        <form action="#" method="get"> <!-- Action and method can be set later -->
-            <input type="text" name="search" placeholder="Search projects...">
+        <a href="https://github.com/pengo820/my-webpage" target="_blank">Visit GitHub</a>
+        <form id="search-form">
+            <input type="text" id="search-input" name="search" placeholder="Search projects...">
             <button type="submit">Search</button>
         </form>
     </nav>
@@ -186,7 +187,7 @@
             <h2>Contact Me</h2>
             <p>
                 Feel free to reach out via email:
-                me@pengo820.org
+                <a href="mailto:me@pengo820.org">me@pengo820.org</a>
             </p>
         </div>
 
@@ -196,7 +197,7 @@
                 <p>Explore my latest projects below.</p>
             </div>
 
-            <div class="grid">
+            <div class="grid" id="project-grid">
                 <div class="card">
                     <h2>Projectile Motion Simulator</h2>
                     <p>An interactive web-based tool for physics education, visualizing parabolic trajectories of projectiles under gravity with adjustable launch parameters.</p>
@@ -214,9 +215,9 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Webpage of pengo820. All rights reserved.</p>
+        <p>&copy; 2023 Blog of pengo820. All rights reserved.</p>
     </footer>
-    
+
     <script>
         document.getElementById('search-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
