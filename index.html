@@ -216,5 +216,32 @@
     <footer>
         <p>&copy; 2025 Webpage of pengo820. All rights reserved.</p>
     </footer>
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const searchInput = document.getElementById('search-input');
+            const filter = searchInput.value.toLowerCase();
+            const projectGrid = document.getElementById('project-grid');
+            const cards = projectGrid.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const title = card.getElementsByTagName('h2')[0];
+                const description = card.getElementsByTagName('p')[0];
+
+                if (title && description) {
+                    const titleText = title.textContent || title.innerText;
+                    const descriptionText = description.textContent || description.innerText;
+
+                    if (titleText.toLowerCase().indexOf(filter) > -1 || descriptionText.toLowerCase().indexOf(filter) > -1) {
+                        card.style.display = ""; // Show the card
+                    } else {
+                        card.style.display = "none"; // Hide the card
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
