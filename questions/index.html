@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+            async
+        ></script>
+        <title>Interesting Questions & Solutions</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 20px;
+                background-color: #f4f4f4;
+                color: #333;
+            }
+            .container {
+                max-width: 800px;
+                margin: auto;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                color: #0056b3;
+                text-align: center;
+            }
+            .question-section {
+                margin-bottom: 20px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 15px;
+            }
+            .question-section:last-child {
+                border-bottom: none;
+            }
+            h2 {
+                color: #007bff;
+                margin-top: 0;
+            }
+            pre {
+                background-color: #e9e9e9;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+            }
+            code {
+                font-family: monospace;
+            }
+            .toggle-solution-btn {
+                background-color: #007bff;
+                color: white;
+                padding: 8px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-size: 1em;
+            }
+            .toggle-solution-btn:hover {
+                background-color: #0056b3;
+            }
+            .solution-container {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease-in-out; /* Smooth transition for expand/collapse */
+            }
+            .solution-container.show {
+                max-height: 1000px; /* A value large enough to contain most solutions */
+            }
+            .text-centered {
+                text-align: center;
+                background: #fff;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Interesting Questions & Solutions</h1>
+
+            <div class="question-section">
+                <h2>
+                    Question 1: Projectile when displacement is always
+                    increasing
+                </h2>
+                <h3>Question:</h3>
+                <p>
+                    A projectile is thrown from a point P. It moves in such a
+                    way that its distance from P is always increasing. Find the
+                    maximum angle above the horizontal with which the projectile
+                    could have been thrown. You can ignore air resistance.
+                </p>
+                <button class="toggle-solution-btn">Display Solution</button>
+                <div class="solution-container">
+                    <h3>Solution:</h3>
+                    <p>
+                        Distance, \(D = \sqrt{x^2+y^2}\)<br />
+                        \(D^2 = x^2+y^2\)<br />
+
+                        For distance from P always increasing, \(\frac{dD}{dt} >
+                        0\)<br />
+                        (To get an easier calculation, we use
+                        \(\frac{d(D^2)}{dt} > 0\))<br /><br />
+
+                        \(D^2 = (u \cos\theta \cdot t)^2 + (u \sin\theta \cdot t
+                        - \frac{1}{2}gt^2)^2\)<br />
+                        \(= u^2\cos^2\theta \cdot t^2 + u^2\sin^2\theta \cdot
+                        t^2 + \frac{1}{4}g^2t^4 - u\sin\theta gt^3\)<br />
+                        \(= u^2 t^2 - u\sin\theta gt^3 + \frac{1}{4}g^2t^4\)<br /><br />
+
+                        \(\frac{d(D^2)}{dt} = 2u^2t - 3u\sin\theta gt^2 +
+                        g^2t^3\) \(= t(2u^2 - 3u\sin\theta g t + g^2t^2) >
+                        0\)<br /><br />
+
+                        For \(t>0\), So, \(2u^2 - 3u\sin\theta g t + g^2t^2 \ge
+                        0\) \(g^2t^2 - 3u\sin\theta g t + 2u^2 \ge 0\)<br /><br />
+
+                        \(\Delta = (3u\sin\theta g)^2 - 4 \cdot g^2 \cdot 2u^2\)
+                        \(= 9u^2\sin^2\theta g^2 - 8g^2u^2\) \(=
+                        u^2g^2(9\sin^2\theta - 8) < 0\)<br /><br />
+
+                        For \(u^2g^2 > 0\) So, \(9\sin^2\theta - 8 < 0\)
+                        \(\sin^2\theta < \frac{8}{9}\) \(\sin\theta <
+                        \frac{2\sqrt{2}}{3}\)<br /><br />
+
+                        So, \(\theta_{max} =
+                        \arcsin\left(\frac{2\sqrt{2}}{3}\right) \approx
+                        70.5^{\circ}\) (no real roots)<br />
+                    </p>
+
+                    <a href="https://projectile.pengo820.org" target="_blank"
+                        >Dynamic simulation for this question</a
+                    >
+                </div>
+                <br />
+                <div class="text-centered">
+                    <h3>More questions are coming, to be continued.</h3>
+                </div>
+            </div>
+
+            <!-- <div class="question-section">
+        <h2>Question 2: [Another Question Title Here]</h2>
+        <p>
+          [Describe your second interesting question.]
+        </p>
+        <h3>Solution:</h3>
+        <p>
+          [Explain the solution for the second question.]
+        </p>
+        <pre><code>
+          // More code if applicable
+        </code></pre>
+      </div> -->
+
+            <p style="text-align: center; margin-top: 30px; color: #777">
+                &copy; 2025 pengo820. All rights reserved.
+            </p>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const buttons = document.querySelectorAll(
+                    ".toggle-solution-btn",
+                );
+
+                buttons.forEach((button) => {
+                    button.addEventListener("click", function () {
+                        const solutionContainer = this.nextElementSibling;
+
+                        solutionContainer.classList.toggle("show");
+
+                        if (solutionContainer.classList.contains("show")) {
+                            this.textContent = "Hide Solution";
+                        } else {
+                            this.textContent = "Display Solution";
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
