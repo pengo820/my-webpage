@@ -1,253 +1,304 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://pengo820.org/avatar.png" type="image/png">
-    <title>Webpage of pengo820</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2em 0;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            margin: 0.5em 0 0;
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-        nav {
-            margin: 1.5em 0;
-            text-align: center;
-            display: flex; /* Use flexbox for layout */
-            justify-content: center; /* Center navigation items */
-            align-items: center; /* Align items vertically */
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-        }
-        nav a {
-            margin: 0 1em;
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #3498db;
-        }
-        nav form {
-            margin-left: 2em; /* Add space between links and search */
-            display: flex;
-            align-items: center;
-        }
-        nav input[type="text"] {
-            padding: 0.5em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 0.5em;
-            font-size: 1em;
-        }
-        nav button {
-            padding: 0.5em 1em;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-        nav button:hover {
-            background-color: #2980b9;
-        }
-        .container {
-            width: 85%;
-            margin: auto;
-            padding: 2em 0;
-            display: flex; /* Enable flexbox for main content layout */
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            gap: 2em; /* Add space between sidebar and main content */
-        }
-        .sidebar {
-            flex: 1; /* Allow sidebar to grow */
-            min-width: 200px; /* Minimum width for sidebar */
-            /* Styles for the contact section */
-            background: #e0e0e0; /* Different background color */
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            padding: 1.5em;
-            height: fit-content; /* Adjust height to content */
-        }
-        .sidebar h2 {
-             margin-top: 0;
-             color: #2c3e50;
-             font-size: 1.5em;
-             margin-bottom: 0.5em;
-        }
-        .sidebar p {
-             line-height: 1.6;
-             color: #555;
-             margin-bottom: 1em;
-        }
-        .sidebar a {
-             color: #3498db;
-             text-decoration: none;
-             font-weight: 500;
-        }
-        .sidebar a:hover {
-             text-decoration: underline;
-        }
-        .main-content {
-            flex: 3; /* Allow main content to take up more space */
-            min-width: 300px; /* Minimum width for main content */
-        }
-        .intro {
-            text-align: center;
-            margin-bottom: 2em;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2em;
-        }
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            padding: 1.5em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-        .card h2 {
-            margin-top: 0;
-            color: #2c3e50;
-            font-size: 1.5em;
-            margin-bottom: 0.5em;
-        }
-        .card p {
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 1em;
-        }
-        .card a {
-            display: inline-block;
-            margin-top: 0.5em;
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-        }
-         .card a:not(:last-child) {
-            margin-right: 1em;
-        }
-        .card a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 1.5em 0;
-            margin-top: 2em;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Webpage of pengo820</h1>
-        <p>Insights, ideas, and projects from my world</p>
-    </header>
-
-    <nav>
-        <a href="https://pengo820.org">Home</a> 
-        <a href="https://github.com/pengo820/my-webpage" target="_blank">Visit GitHub</a>
-        <form id="search-form">
-            <input type="text" id="search-input" name="search" placeholder="Search projects...">
-            <button type="submit">Search</button>
-        </form>
-    </nav>
-
-    <div class="container">
-        <div class="sidebar">
-            <h2>Contact Me</h2>
-            <p>
-                Feel free to reach out via email:
-                me@pengo820.org
-            </p>
-        </div>
-
-        <div class="main-content">
-            <div class="intro">
-                <h2>Welcome to My Space</h2>
-                <p>Explore my latest projects below.</p>
-            </div>
-
-            <div class="grid" id="project-grid">
-                <div class="card">
-                    <h2>Projectile Motion Simulator</h2>
-                    <p>An interactive web-based tool for physics education, visualizing parabolic trajectories of projectiles under gravity with adjustable launch parameters.</p>
-                    <a href="https://projectile.pengo820.org" target="_blank">Visit Simulator</a>
-                    <a href="https://github.com/pengo820/projectile.io" target="_blank">Visit GitHub Page</a>
-                </div>
-                 <div class="card">
-                    <h2>Example Interactive Collision</h2>
-                    <p>An interactive webpage showcasing a glitch text effect and dynamic particle system reacting to mouse movements and clicks.</p>
-                    <a href="https://collision.pengo820.org/" target="_blank">Visit Demo</a>
-                    <a href="https://github.com/pengo820/fucking-dynamic-effect" target="_blank">Visit GitHub Page</a>
-                </div>
-                <div class="card">
-                    <h2>Interesting Questions Sharing</h2>
-                    <p>In this project, I will share some interesting questions and their solutions that I found in during my study.</p>
-                    <a href="https://study.pengo820.org/" target="_blank">Start Research</a>
-                    <a href="https://github.com/pengo820/knowledge-sharing" target="_blank">Visit GitHub Page</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Webpage of pengo820. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.getElementById('search-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const searchInput = document.getElementById('search-input');
-            const filter = searchInput.value.toLowerCase();
-            const projectGrid = document.getElementById('project-grid');
-            const cards = projectGrid.getElementsByClassName('card');
-
-            for (let i = 0; i < cards.length; i++) {
-                const card = cards[i];
-                const title = card.getElementsByTagName('h2')[0];
-                const description = card.getElementsByTagName('p')[0];
-
-                if (title && description) {
-                    const titleText = title.textContent || title.innerText;
-                    const descriptionText = description.textContent || description.innerText;
-
-                    if (titleText.toLowerCase().indexOf(filter) > -1 || descriptionText.toLowerCase().indexOf(filter) > -1) {
-                        card.style.display = ""; // Show the card
-                    } else {
-                        card.style.display = "none"; // Hide the card
-                    }
-                }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            href="https://pengo820.org/avatar.png"
+            type="image/png"
+        />
+        <title>Webpage of pengo820</title>
+        <style>
+            body {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f9f9f9;
+                color: #333;
             }
-        });
-    </script>
-</body>
+            header {
+                background-color: #2c3e50;
+                color: white;
+                text-align: center;
+                padding: 2em 0;
+            }
+            header h1 {
+                margin: 0;
+                font-size: 2.5em;
+            }
+            header p {
+                margin: 0.5em 0 0;
+                font-size: 1.1em;
+                opacity: 0.9;
+            }
+            nav {
+                margin: 1.5em 0;
+                text-align: center;
+                display: flex; /* Use flexbox for layout */
+                justify-content: center; /* Center navigation items */
+                align-items: center; /* Align items vertically */
+                flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            }
+            nav a {
+                margin: 0 1em;
+                text-decoration: none;
+                color: #2c3e50;
+                font-weight: 500;
+                transition: color 0.3s ease;
+            }
+            nav a:hover {
+                color: #3498db;
+            }
+            nav form {
+                margin-left: 2em; /* Add space between links and search */
+                display: flex;
+                align-items: center;
+            }
+            nav input[type="text"] {
+                padding: 0.5em;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-right: 0.5em;
+                font-size: 1em;
+            }
+            nav button {
+                padding: 0.5em 1em;
+                background-color: #3498db;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 1em;
+                transition: background-color 0.3s ease;
+            }
+            nav button:hover {
+                background-color: #2980b9;
+            }
+            .container {
+                width: 85%;
+                margin: auto;
+                padding: 2em 0;
+                display: flex; /* Enable flexbox for main content layout */
+                flex-wrap: wrap; /* Allow wrapping on smaller screens */
+                gap: 2em; /* Add space between sidebar and main content */
+            }
+            .sidebar {
+                flex: 1; /* Allow sidebar to grow */
+                min-width: 200px; /* Minimum width for sidebar */
+                /* Styles for the contact section */
+                background: #e0e0e0; /* Different background color */
+                border-radius: 8px;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                padding: 1.5em;
+                height: fit-content; /* Adjust height to content */
+            }
+            .sidebar h2 {
+                margin-top: 0;
+                color: #2c3e50;
+                font-size: 1.5em;
+                margin-bottom: 0.5em;
+            }
+            .sidebar p {
+                line-height: 1.6;
+                color: #555;
+                margin-bottom: 1em;
+            }
+            .sidebar a {
+                color: #3498db;
+                text-decoration: none;
+                font-weight: 500;
+            }
+            .sidebar a:hover {
+                text-decoration: underline;
+            }
+            .main-content {
+                flex: 3; /* Allow main content to take up more space */
+                min-width: 300px; /* Minimum width for main content */
+            }
+            .intro {
+                text-align: center;
+                margin-bottom: 2em;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2em;
+            }
+            .card {
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                padding: 1.5em;
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+            }
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            }
+            .card h2 {
+                margin-top: 0;
+                color: #2c3e50;
+                font-size: 1.5em;
+                margin-bottom: 0.5em;
+            }
+            .card p {
+                line-height: 1.6;
+                color: #555;
+                margin-bottom: 1em;
+            }
+            .card a {
+                display: inline-block;
+                margin-top: 0.5em;
+                color: #3498db;
+                text-decoration: none;
+                font-weight: 500;
+            }
+            .card a:not(:last-child) {
+                margin-right: 1em;
+            }
+            .card a:hover {
+                text-decoration: underline;
+            }
+            footer {
+                background-color: #2c3e50;
+                color: white;
+                text-align: center;
+                padding: 1.5em 0;
+                margin-top: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Webpage of pengo820</h1>
+            <p>Insights, ideas, and projects from my world</p>
+        </header>
+
+        <nav>
+            <a href="https://pengo820.org">Home</a>
+            <a href="https://github.com/pengo820/my-webpage" target="_blank"
+                >Visit GitHub</a
+            >
+            <form id="search-form">
+                <input
+                    type="text"
+                    id="search-input"
+                    name="search"
+                    placeholder="Search projects..."
+                />
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+
+        <div class="container">
+            <div class="sidebar">
+                <h2>Contact Me</h2>
+                <p>Feel free to reach out via email: me@pengo820.org</p>
+            </div>
+
+            <div class="main-content">
+                <div class="intro">
+                    <h2>Welcome to My Space</h2>
+                    <p>Explore my latest projects below.</p>
+                </div>
+
+                <div class="grid" id="project-grid">
+                    <div class="card">
+                        <h2>Projectile Motion Simulator</h2>
+                        <p>
+                            An interactive web-based tool for physics education,
+                            visualizing parabolic trajectories of projectiles
+                            under gravity with adjustable launch parameters.
+                        </p>
+                        <a
+                            href="https://projectile.pengo820.org"
+                            target="_blank"
+                            >Visit Simulator</a
+                        >
+                        <a
+                            href="https://github.com/pengo820/projectile.io"
+                            target="_blank"
+                            >Visit GitHub Page</a
+                        >
+                    </div>
+                    <div class="card">
+                        <h2>Example Interactive Collision</h2>
+                        <p>
+                            An interactive webpage showcasing a glitch text
+                            effect and dynamic particle system reacting to mouse
+                            movements and clicks.
+                        </p>
+                        <a
+                            href="https://collision.pengo820.org/"
+                            target="_blank"
+                            >Visit Demo</a
+                        >
+                        <a
+                            href="https://github.com/pengo820/fucking-dynamic-effect"
+                            target="_blank"
+                            >Visit GitHub Page</a
+                        >
+                    </div>
+                    <div class="card">
+                        <h2>Interesting Questions Sharing</h2>
+                        <p>
+                            In this project, I will share some interesting
+                            questions and their solutions that I found in during
+                            my study.
+                        </p>
+                        <a href="/questions/" target="_blank">Start Research</a>
+                        <a
+                            href="https://github.com/pengo820/knowledge-sharing"
+                            target="_blank"
+                            >Visit GitHub Page</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Webpage of pengo820. All rights reserved.</p>
+        </footer>
+
+        <script>
+            document
+                .getElementById("search-form")
+                .addEventListener("submit", function (event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    const searchInput = document.getElementById("search-input");
+                    const filter = searchInput.value.toLowerCase();
+                    const projectGrid = document.getElementById("project-grid");
+                    const cards = projectGrid.getElementsByClassName("card");
+
+                    for (let i = 0; i < cards.length; i++) {
+                        const card = cards[i];
+                        const title = card.getElementsByTagName("h2")[0];
+                        const description = card.getElementsByTagName("p")[0];
+
+                        if (title && description) {
+                            const titleText =
+                                title.textContent || title.innerText;
+                            const descriptionText =
+                                description.textContent ||
+                                description.innerText;
+
+                            if (
+                                titleText.toLowerCase().indexOf(filter) > -1 ||
+                                descriptionText.toLowerCase().indexOf(filter) >
+                                    -1
+                            ) {
+                                card.style.display = ""; // Show the card
+                            } else {
+                                card.style.display = "none"; // Hide the card
+                            }
+                        }
+                    }
+                });
+        </script>
+    </body>
 </html>
