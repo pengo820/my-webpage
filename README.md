@@ -1,2 +1,2 @@
-# my webpage
-You can reach my webpage at https://pengo820.org/
+# My Webpage
+This webpage records some of my insights, ideas, and projects.
