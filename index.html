@@ -1,352 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="26ea1bad-0a3c-4f63-b807-3c4dd598a970";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-    <link rel="icon" href="https://pengo820.org/avatar.png" type="image/png">
-    <title>Webpage of pengo820</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2em 0;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            margin: 0.5em 0 0;
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* Makes the image circular */
-            object-fit: cover; /* Ensures the image covers the area without distortion */
-            margin: 1em auto; /* Centers the image horizontally and adds vertical space */
-            display: block; /* Makes it a block element to apply margin: auto */
-            border: 4px solid #fff; /* White border around the avatar */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-        }
-        nav {
-            margin: 1.5em 0;
-            text-align: center;
-            display: flex; /* Use flexbox for layout */
-            justify-content: center; /* Center navigation items */
-            align-items: center; /* Align items vertically */
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-        }
-        nav a {
-            margin: 0 1em;
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #3498db;
-        }
-        nav form {
-            margin-left: 2em; /* Add space between links and search */
-            display: flex;
-            align-items: center;
-        }
-        nav input[type="text"] {
-            padding: 0.5em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 0.5em;
-            font-size: 1em;
-        }
-        nav button {
-            padding: 0.5em 1em;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-        nav button:hover {
-            background-color: #2980b9;
-        }
-        .container {
-            width: 85%;
-            margin: auto;
-            padding: 2em 0;
-            display: flex; /* Enable flexbox for main content layout */
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            gap: 2em; /* Add space between sidebar and main content */
-        }
-        .sidebar {
-            flex: 1; /* Allow sidebar to grow */
-            min-width: 200px; /* Minimum width for sidebar */
-            /* Styles for the contact section */
-            background: #e0e0e0; /* Different background color */
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            padding: 1.5em;
-            height: fit-content; /* Adjust height to content */
-        }
-        .sidebar h2 {
-             margin-top: 0;
-             color: #2c3e50;
-             font-size: 1.5em;
-             margin-bottom: 0.5em;
-        }
-        .sidebar p {
-             line-height: 1.6;
-             color: #555;
-             margin-bottom: 1em;
-        }
-        .sidebar a {
-             color: #3498db;
-             text-decoration: none;
-             font-weight: 500;
-        }
-        .sidebar a:hover {
-             text-decoration: underline;
-        }
-        .main-content {
-            flex: 3; /* Allow main content to take up more space */
-            min-width: 300px; /* Minimum width for main content */
-        }
-        .intro {
-            text-align: center;
-            margin-bottom: 2em;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2em;
-        }
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            padding: 1.5em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-        .card h2 {
-            margin-top: 0;
-            color: #2c3e50;
-            font-size: 1.5em;
-            margin-bottom: 0.5em;
-        }
-        .card p {
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 1em;
-        }
-        .card a {
-            display: inline-block;
-            margin-top: 0.5em;
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-        }
-         .card a:not(:last-child) {
-            margin-right: 1em;
-        }
-        .card a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 0.2em 0;
-            margin-top: 1em;
-        }
-        footer .social-icons .icon {
-            opacity: 0.5; 
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="26ea1bad-0a3c-4f63-b807-3c4dd598a970";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+  <link rel="icon" href="https://pengo820.org/avatar.png" type="image/png">
+  <title>Webpage of pengo820</title>
 
-        
-        footer .social-icons .icon:hover {
-            opacity: 1.0;
-        }
+  <style>
+    :root{
+      /* Light theme tokens */
+      --text:#0f172a;         /* slate-900 */
+      --muted:#6b7280;        /* gray-500 */
+      --primary:#2563eb;      /* blue-600 */
+      --accent:#60a5fa;       /* sky */
+      --accent-2:#a78bfa;     /* violet */
+      --accent-3:#22d3ee;     /* cyan */
+      --accent-4:#f472b6;     /* pink */
 
-        
-        footer .social-icons {
-            display: flex;
-            gap: 20px;
-            padding: 8px;
-            background-color: #2c3e50;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px;
-            max-width: 400px;
-            margin: 8px auto;
-        }
+      --glass:rgba(255,255,255,0.72);
+      --glass-strong:rgba(255,255,255,0.82);
+      --glass-border:rgba(17,24,39,0.08); /* subtle dark border on light bg */
 
-        footer .social-icons a {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px; 
-            height: 36px;
-            border-radius: 50%; 
-            background-color: #ffffff; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-            transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
-        }
+      --radius-lg:18px;
+      --radius-xl:26px;
 
-        footer .social-icons a:hover {
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
-        }
+      --shadow-lg:0 20px 50px rgba(2,6,23,0.10);
+      --shadow-md:0 12px 28px rgba(2,6,23,0.10);
+      --shadow-sm:0 8px 18px rgba(2,6,23,0.08);
+    }
 
-        footer .social-icons .icon {
-            width: 24px; 
-            height: 24px;
-            fill: #333;
-            transition: fill 0.3s ease;
-        }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, "Helvetica Neue", Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text);
+      background:#ffffff; /* White background per request */
+      line-height:1.55;
+    }
 
-        footer .social-icons a:hover .icon {
-            fill: #007bff; 
-        }
+    /* Liquid pastel blobs for gentle depth on white */
+    .decor{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      overflow:hidden;
+    }
+    .blob{
+      position:absolute;
+      width:44vmax;
+      height:44vmax;
+      border-radius:42% 58% 63% 37% / 35% 39% 61% 65%;
+      filter: blur(40px) saturate(140%);
+      opacity:0.22;
+      mix-blend-mode:normal; /* on white, normal keeps colors visible */
+      transform-origin:center;
+      animation: float 16s ease-in-out infinite alternate, morph 28s ease-in-out infinite;
+    }
+    .blob--a{background: radial-gradient(circle at 30% 30%, rgba(96,165,250,0.55), rgba(96,165,250,0.10) 60%, transparent 70%); top:-10vmax; left:-8vmax; }
+    .blob--b{background: radial-gradient(circle at 70% 40%, rgba(167,139,250,0.50), rgba(167,139,250,0.10) 60%, transparent 70%); top:10vmax; right:-12vmax; animation-delay: -4s;}
+    .blob--c{background: radial-gradient(circle at 40% 60%, rgba(34,211,238,0.50), rgba(34,211,238,0.10) 60%, transparent 70%); bottom:-14vmax; left:10vmax; animation-delay: -8s;}
+    .blob--d{background: radial-gradient(circle at 60% 60%, rgba(244,114,182,0.46), rgba(244,114,182,0.10) 60%, transparent 70%); bottom:-10vmax; right:6vmax; animation-delay: -12s;}
 
-    </style>
+    @keyframes float{
+      from{ transform: translate3d(0,0,0) rotate(0deg) scale(1); }
+      to  { transform: translate3d(2vmax,-2vmax,0) rotate(8deg) scale(1.05); }
+    }
+    @keyframes morph{
+      0%{ border-radius:42% 58% 63% 37% / 35% 39% 61% 65%; }
+      50%{ border-radius:58% 42% 37% 63% / 61% 65% 35% 39%; }
+      100%{ border-radius:42% 58% 63% 37% / 35% 39% 61% 65%; }
+    }
+
+    /* Glass utility */
+    .glass{
+      background: var(--glass);
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.5);
+    }
+    .glass:hover{ box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.6); }
+
+    .glass.sheen{ position:relative; overflow:hidden; }
+    .glass.sheen:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.28) 35%, rgba(255,255,255,0.12) 55%, transparent 70%);
+      pointer-events:none;
+      border-radius:inherit;
+      mix-blend-mode:overlay;
+    }
+
+    /* Layout container */
+    .wrap{
+      position:relative;
+      z-index:1;
+      width:min(1100px, 92%);
+      margin-inline:auto;
+      padding: clamp(16px, 2vw, 24px);
+    }
+
+    /* Header */
+    header{
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 4vw, 48px);
+      margin-top: clamp(18px, 4vw, 40px);
+      text-align:center;
+    }
+    header h1{
+      margin:0;
+      font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+      letter-spacing: 0.2px;
+      text-shadow: 0 2px 12px rgba(37,99,235,0.12);
+      color:#0b1220;
+    }
+    header p{
+      margin: 10px 0 0;
+      font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+      color: var(--muted);
+      opacity:0.95;
+    }
+
+    /* Nav */
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 18px;
+      border-radius: var(--radius-lg);
+      padding: 10px 14px;
+      margin: 16px auto 22px;
+      width: fit-content;
+    }
+    nav a{
+      color:#1f2937;
+      text-decoration:none;
+      font-weight:600;
+      letter-spacing:0.2px;
+      padding:8px 12px;
+      border-radius:10px;
+      transition: color .2s ease, background .2s ease, transform .2s ease;
+    }
+    nav a:hover{ color:#111827; background: rgba(37,99,235,0.08); transform: translateY(-1px); }
+
+    nav form{
+      display:flex; align-items:center; gap:10px;
+      padding-left: 8px;
+      margin-left: 6px;
+      border-left:1px solid rgba(17,24,39,0.08);
+    }
+    nav input[type="text"]{
+      color:#111827;
+      background: var(--glass-strong);
+      border:1px solid rgba(17,24,39,0.12);
+      outline:none;
+      padding:10px 12px;
+      border-radius:12px;
+      width:min(46vw, 280px);
+      transition: border .2s ease, box-shadow .2s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    nav input[type="text"]::placeholder{color:#9aa3b2}
+    nav input[type="text"]:focus{
+      border-color: rgba(37,99,235,0.55);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.20);
+    }
+    nav button{
+      border:0; cursor:pointer; color:#ffffff; font-weight:700;
+      background: linear-gradient(135deg, #60a5fa, #2563eb);
+      padding:10px 14px; border-radius:12px;
+      box-shadow: 0 8px 18px rgba(37,99,235,0.25);
+      transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    nav button:hover{ transform: translateY(-1px); filter:brightness(1.05); }
+    nav button:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(37,99,235,0.2); }
+
+    /* Main area */
+    .main{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap: 22px;
+      margin-top: 18px;
+    }
+    @media (max-width: 900px){
+      .main{ grid-template-columns: 1fr; }
+    }
+
+    .sidebar{
+      border-radius: var(--radius-xl);
+      padding: 20px;
+    }
+    .sidebar h2{
+      margin: 4px 0 10px; font-size: 1.4rem; letter-spacing:.2px; color:#0f172a;
+    }
+    .sidebar p{ color:var(--muted); margin: 8px 0 12px; }
+    .sidebar a{ color:#2563eb; text-decoration:none; font-weight:600; }
+    .sidebar a:hover{ text-decoration:underline; }
+
+    .avatar{
+      width: 160px; height:160px; display:block; margin: 14px auto 0;
+      border-radius:50%;
+      object-fit:cover;
+      border: 2px solid rgba(17,24,39,0.06);
+      box-shadow:
+        0 12px 30px rgba(0,0,0,0.08),
+        0 0 0 8px rgba(17,24,39,0.02);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .main-content{ min-width: 0; }
+    .intro{
+      text-align:center;
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 8px;
+      margin-bottom: 18px;
+    }
+    .intro h2{ margin:0 0 6px; font-size: 1.6rem; color:#0f172a; }
+    .intro p{ margin:0; color:var(--muted); }
+
+    /* Cards grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .card{
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .card:hover{ transform: translateY(-4px); }
+    .card h2{ margin:4px 0 8px; font-size:1.2rem; color:#0f172a;}
+    .card p{ margin:10px 0 12px; color:var(--muted); }
+    .card a{
+      display:inline-block;
+      color:#1d4ed8; text-decoration:none; font-weight:600;
+      margin-right: 14px; padding-bottom:2px;
+      border-bottom: 1px dashed rgba(29,78,216,0.35);
+      transition: color .2s ease, border-color .2s ease, transform .15s ease;
+    }
+    .card a:hover{ color:#0b63ff; border-color:#0b63ff; transform: translateY(-1px); }
+
+    /* Footer */
+    footer{
+      border-radius: var(--radius-lg);
+      padding: 8px 10px 12px;
+      margin: 24px 0 18px;
+      text-align:center;
+      color:#111827;
+    }
+    footer p{ margin:8px 0; opacity:0.9; }
+
+    footer .social-icons{
+      display:flex; gap:18px; padding:8px;
+      justify-content:center; align-items:center;
+      width: fit-content; margin: 8px auto;
+      background: rgba(255,255,255,0.8);
+      border:1px solid rgba(17,24,39,0.08);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
+    }
+    footer .social-icons a{
+      text-decoration:none; color:inherit;
+      display:flex; align-items:center; justify-content:center;
+      width:40px; height:40px;
+      border-radius:50%;
+      background: #ffffff;
+      border:1px solid rgba(17,24,39,0.06);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+      transition: transform .18s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    footer .social-icons a:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 22px rgba(0,0,0,0.12);
+      filter: saturate(110%);
+    }
+    footer .icon{ width:22px; height:22px; fill:#374151; transition: fill .2s ease; }
+    footer .social-icons a:hover .icon{ fill:#2563eb; }
+
+    /* Apply glass to major surfaces */
+    header, nav, .sidebar, .intro, .card, footer{
+      background: var(--glass);
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Fallback when blur not supported */
+    @supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))){
+      header, nav, .sidebar, .intro, .card, footer{ background: #ffffff; }
+    }
+
+    /* Motion accessibility */
+    @media (prefers-reduced-motion: reduce){
+      .blob{ animation: none; }
+      nav a, .card, nav button{ transition: none; }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Webpage of pengo820</h1>
-        <p>Insights, ideas, and projects from my world</p>
+  <!-- Liquid blobs background -->
+  <div class="decor" aria-hidden="true">
+    <div class="blob blob--a"></div>
+    <div class="blob blob--b"></div>
+    <div class="blob blob--c"></div>
+    <div class="blob blob--d"></div>
+  </div>
+
+  <div class="wrap">
+    <header class="glass sheen">
+      <h1>Webpage of pengo820</h1>
+      <p>Insights, ideas, and projects from my world</p>
     </header>
 
-    <nav>
-        <a href="https://pengo820.org">Home</a> 
-        <form id="search-form">
-            <input type="text" id="search-input" name="search" placeholder="Search projects...">
-            <button type="submit">Search</button>
-        </form>
+    <nav class="glass sheen" aria-label="Primary">
+      <a href="https://pengo820.org">Home</a>
+      <form id="search-form" role="search" aria-label="Project search">
+        <input type="text" id="search-input" name="search" placeholder="Search projects..." aria-label="Search projects"/>
+        <button type="submit" aria-label="Run search">Search</button>
+      </form>
     </nav>
 
-    <div class="container">
-        <div class="sidebar">
-            <h2>Contact Me</h2>
-            <p>
-                Feel free to reach me via email:
-                <a href="mailto:support@pengo820.org">support@pengo820.org</a>
-            </p>
-            <img src="https://pengo820.org/avatar.png" alt="Pengo820's Avatar" class="avatar">
+    <section class="main">
+      <aside class="sidebar glass sheen">
+        <h2>Contact Me</h2>
+        <p>
+          Feel free to reach me via email:
+          <a href="/cdn-cgi/l/email-protection#8cfff9fcfce3fef8ccfce9e2ebe3b4bebca2e3feeb">
+            <span class="__cf_email__" data-cfemail="17646267677865635767727970782f252739786570">[email&nbsp;protected]</span>
+          </a>
+        </p>
+        <img src="https://pengo820.org/avatar.png" alt="Pengo820's Avatar" class="avatar">
+      </aside>
+
+      <main class="main-content">
+        <div class="intro glass sheen">
+          <h2>Welcome to My Space</h2>
+          <p>Explore my latest projects below.</p>
         </div>
 
-        <div class="main-content">
-            <div class="intro">
-                <h2>Welcome to My Space</h2>
-                <p>Explore my latest projects below.</p>
-            </div>
+        <div class="grid" id="project-grid">
+          <article class="card glass sheen">
+            <h2>Projectile Motion Simulator</h2>
+            <p>An interactive web-based tool for physics education, visualizing parabolic trajectories of projectiles under gravity with adjustable launch parameters.</p>
+            <a href="https://projectile.pengo820.org" target="_blank" rel="noopener">Visit Simulator</a>
+            <a href="https://github.com/pengo820/projectile.io" target="_blank" rel="noopener">Visit GitHub Page</a>
+          </article>
 
-            <div class="grid" id="project-grid">
-                <div class="card">
-                    <h2>Projectile Motion Simulator</h2>
-                    <p>An interactive web-based tool for physics education, visualizing parabolic trajectories of projectiles under gravity with adjustable launch parameters.</p>
-                    <a href="https://projectile.pengo820.org" target="_blank">Visit Simulator</a>
-                    <a href="https://github.com/pengo820/projectile.io" target="_blank">Visit GitHub Page</a>
-                </div>
-                 <div class="card">
-                    <h2>Example Interactive Collision</h2>
-                    <p>An interactive webpage showcasing a glitch text effect and dynamic particle system reacting to mouse movements and clicks.</p>
-                    <a href="https://collision.pengo820.org/" target="_blank">Visit Demo</a>
-                    <a href="https://github.com/pengo820/example-interactive-collision" target="_blank">Visit GitHub Page</a>
-                </div>
-                <div class="card">
-                    <h2>Interesting Questions Sharing</h2>
-                    <p>In this project, I will share some interesting questions and their solutions that I found in during my study.</p>
-                    <a href="https://study.pengo820.org/" target="_blank">Start Research</a>
-                    <a href="https://github.com/pengo820/knowledge-sharing" target="_blank">Visit GitHub Page</a>
-                </div>
-                <div class="card">
-                    <h2>Physical Constants</h2>
-                    <p>Recorded some physical constants</p>
-                    <a href="https://physical-constants.pengo820.org/" target="_blank">Look For Constants</a>
-                    <a href="https://github.com/pengo820/physical-constants" target="_blank">Visit GitHub Page</a>
-                </div>
-            </div>
-        </div>
-    </div>
+          <article class="card glass sheen">
+            <h2>Example Interactive Collision</h2>
+            <p>An interactive webpage showcasing a glitch text effect and dynamic particle system reacting to mouse movements and clicks.</p>
+            <a href="https://collision.pengo820.org/" target="_blank" rel="noopener">Visit Demo</a>
+            <a href="https://github.com/pengo820/example-interactive-collision" target="_blank" rel="noopener">Visit GitHub Page</a>
+          </article>
 
-    <footer>
-        <p>&copy; 2025 Webpage of pengo820. All rights reserved.</p>
-    
-        <div class="social-icons">
-            <a href="https://discord.gg/2zJDMAhh" target="_blank" title="Discord">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.07.07 0 0 0-.073.035c-.21.372-.444.857-.608 1.237a18.06 18.06 0 0 0-5.446 0c-.164-.39-.4-.865-.61-1.237a.07.07 0 0 0-.073-.035A19.736 19.736 0 0 0 3.683 4.369a.064.064 0 0 0-.029.027C.533 9.093-.32 13.61.099 18.082a.07.07 0 0 0 .025.047 19.9 19.9 0 0 0 5.993 3.057.07.07 0 0 0 .076-.027c.464-.635.875-1.304 1.226-2.011a.07.07 0 0 0-.038-.098 13.138 13.138 0 0 1-1.872-.9.07.07 0 0 1-.007-.116c.126-.094.252-.192.373-.291a.07.07 0 0 1 .073-.01c3.927 1.793 8.18 1.793 12.061 0a.07.07 0 0 1 .074.009c.12.099.247.198.373.292a.07.07 0 0 1-.006.116 12.64 12.64 0 0 1-1.872.899.07.07 0 0 0-.039.099c.36.706.771 1.375 1.225 2.01a.07.07 0 0 0 .076.028 19.888 19.888 0 0 0 6.002-3.057.07.07 0 0 0 .025-.047c.5-5.177-.838-9.653-3.602-13.686a.061.061 0 0 0-.03-.028ZM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.334.955-2.418 2.157-2.418 1.21 0 2.175 1.092 2.157 2.418 0 1.334-.955 2.419-2.157 2.419Zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.334.955-2.418 2.157-2.418 1.21 0 2.175 1.092 2.157 2.418 0 1.334-.948 2.419-2.157 2.419Z" />
-                </svg>
-            </a>
-            <a href="https://twitter.com/pengo820?mx=1" target="_blank" title="Twitter">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M22.46 5.924c-.793.352-1.644.59-2.538.697a4.48 4.48 0 0 0 1.96-2.475 8.94 8.94 0 0 1-2.828 1.084 4.48 4.48 0 0 0-7.637 4.086A12.71 12.71 0 0 1 3.112 4.62a4.49 4.49 0 0 0 1.387 5.97 4.42 4.42 0 0 1-2.03-.561v.057a4.48 4.48 0 0 0 3.6 4.392 4.48 4.48 0 0 1-2.025.077 4.49 4.49 0 0 0 4.187 3.116A8.99 8.99 0 0 1 2 19.54a12.67 12.67 0 0 0 6.89 2.021c8.274 0 12.8-6.849 12.8-12.789 0-.195-.005-.391-.014-.583A9.22 9.22 0 0 0 24 4.557a8.94 8.94 0 0 1-2.54.697z" />
-                </svg>
-            </a>
-            <a href="https://github.com/pengo820" target="_blank" title="GitHub">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.867 8.166 6.839 9.489.5.092.682-.217.682-.483 
-    0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608
-    1.004.07 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.111-4.555-4.944
-    0-1.091.39-1.983 1.029-2.681-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 
-    1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.378.202 2.397.1 2.65.64.698 1.028 1.59 1.028 2.681 0 
-    3.841-2.338 4.687-4.566 4.936.359.31.678.921.678 1.857 0 1.34-.012 2.421-.012 2.751 0 .268.18.58.688.482A10.013 
-    10.013 0 0 0 22 12c0-5.523-4.477-10-10-10z" />
-                </svg>
-            </a>
-            <a href="https://t.me/pengo820" target="_blank" title="Telegram">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M12 2C6.477 2 2 6.477 2 12c0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zm4.74 7.388-1.783 8.413c-.134.601-.484.749-.98.466l-2.712-2.001-1.31 1.261c-.145.144-.267.266-.547.266l.197-2.793 5.087-4.596c.221-.197-.048-.308-.344-.111l-6.292 3.96-2.713-.849c-.591-.184-.603-.591.123-.873l10.617-4.093c.495-.18.927.12.768.87z" />
-                </svg>
-            </a>
+          <article class="card glass sheen">
+            <h2>Interesting Questions Sharing</h2>
+            <p>In this project, I will share some interesting questions and their solutions that I found in during my study.</p>
+            <a href="https://study.pengo820.org/" target="_blank" rel="noopener">Start Research</a>
+            <a href="https://github.com/pengo820/knowledge-sharing" target="_blank" rel="noopener">Visit GitHub Page</a>
+          </article>
+
+          <article class="card glass sheen">
+            <h2>Physical Constants</h2>
+            <p>Recorded some physical constants</p>
+            <a href="https://physical-constants.pengo820.org/" target="_blank" rel="noopener">Look For Constants</a>
+            <a href="https://github.com/pengo820/physical-constants" target="_blank" rel="noopener">Visit GitHub Page</a>
+          </article>
         </div>
-        
+      </main>
+    </section>
+
+    <footer class="glass sheen">
+      <p>&copy; 2025 Webpage of pengo820. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://discord.gg/2zJDMAhh" target="_blank" title="Discord" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.07.07 0 0 0-.073.035c-.21.372-.444.857-.608 1.237a18.06 18.06 0 0 0-5.446 0c-.164-.39-.4-.865-.61-1.237a.07.07 0 0 0-.073-.035A19.736 19.736 0 0 0 3.683 4.369a.064.064 0 0 0-.029.027C.533 9.093-.32 13.61.099 18.082a.07.07 0 0 0 .025.047 19.9 19.9 0 0 0 5.993 3.057.07.07 0 0 0 .076-.027c.464-.635.875-1.304 1.226-2.011a.07.07 0 0 0-.038-.098 13.138 13.138 0 0 1-1.872-.9.07.07 0 0 1-.007-.116c.126-.094.252-.192.373-.291a.07.07 0 0 1 .073-.01c3.927 1.793 8.18 1.793 12.061 0a.07.07 0 0 1 .074.009c.12.099.247.198.373.292a.07.07 0 0 1-.006.116 12.64 12.64 0 0 1-1.872.899.07.07 0 0 0-.039.099c.36.706.771 1.375 1.225 2.01a.07.07 0 0 0 .076.028 19.888 19.888 0 0 0 6.002-3.057.07.07 0 0 0 .025-.047c.5-5.177-.838-9.653-3.602-13.686a.061.061 0 0 0-.03-.028ZM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.334.955-2.418 2.157-2.418 1.21 0 2.175 1.092 2.157 2.418 0 1.334-.955 2.419-2.157 2.419Zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.334.955-2.418 2.157-2.418 1.21 0 2.175 1.092 2.157 2.418 0 1.334-.948 2.419-2.157 2.419Z"/>
+          </svg>
+        </a>
+        <a href="https://twitter.com/pengo820?mx=1" target="_blank" title="Twitter" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22.46 5.924c-.793.352-1.644.59-2.538.697a4.48 4.48 0 0 0 1.96-2.475 8.94 8.94 0 0 1-2.828 1.084 4.48 4.48 0 0 0-7.637 4.086A12.71 12.71 0 0 1 3.112 4.62a4.49 4.49 0 0 0 1.387 5.97 4.42 4.42 0 0 1-2.03-.561v.057a4.48 4.48 0 0 0 3.6 4.392 4.48 4.48 0 0 1-2.025.077 4.49 4.49 0 0 0 4.187 3.116A8.99 8.99 0 0 1 2 19.54a12.67 12.67 0 0 0 6.89 2.021c8.274 0 12.8-6.849 12.8-12.789 0-.195-.005-.391-.014-.583A9.22 9.22 0 0 0 24 4.557a8.94 8.94 0 0 1-2.54.697z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/pengo820" target="_blank" title="GitHub" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.867 8.166 6.839 9.489.5.092.682-.217.682-.483 
+              0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608
+              1.004.07 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.111-4.555-4.944
+              0-1.091.39-1.983 1.029-2.681-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 
+              1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.378.202 2.397.1 2.65.64.698 1.028 1.59 1.028 2.681 0 
+              3.841-2.338 4.687-4.566 4.936.359.31.678.921.678 1.857 0 1.34-.012 2.421-.012 2.751 0 .268.18.58.688.482A10.013 
+              10.013 0 0 0 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+        </a>
+        <a href="https://t.me/pengo820" target="_blank" title="Telegram" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zm4.74 7.388-1.783 8.413c-.134.601-.484.749-.98.466l-2.712-2.001-1.31 1.261c-.145.144-.267.266-.547.266l.197-2.793 5.087-4.596c.221-.197-.048-.308-.344-.111l-6.292 3.96-2.713-.849c-.591-.184-.603-.591.123-.873l10.617-4.093c.495-.18.927.12.768.87z"/>
+          </svg>
+        </a>
+      </div>
     </footer>
+  </div>
 
-    <script>
-        document.getElementById('search-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    // Search filter (unchanged logic)
+    document.getElementById('search-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const searchInput = document.getElementById('search-input');
+      const filter = (searchInput.value || "").toLowerCase();
+      const projectGrid = document.getElementById('project-grid');
+      const cards = projectGrid.getElementsByClassName('card');
 
-            const searchInput = document.getElementById('search-input');
-            const filter = searchInput.value.toLowerCase();
-            const projectGrid = document.getElementById('project-grid');
-            const cards = projectGrid.getElementsByClassName('card');
+      for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        const title = card.getElementsByTagName('h2')[0];
+        const description = card.getElementsByTagName('p')[0];
 
-            for (let i = 0; i < cards.length; i++) {
-                const card = cards[i];
-                const title = card.getElementsByTagName('h2')[0];
-                const description = card.getElementsByTagName('p')[0];
+        if (title && description) {
+          const titleText = title.textContent || title.innerText;
+          const descriptionText = description.textContent || description.innerText;
 
-                if (title && description) {
-                    const titleText = title.textContent || title.innerText;
-                    const descriptionText = description.textContent || description.innerText;
-
-                    if (titleText.toLowerCase().indexOf(filter) > -1 || descriptionText.toLowerCase().indexOf(filter) > -1) {
-                        card.style.display = ""; // Show the card
-                    } else {
-                        card.style.display = "none"; // Hide the card
-                    }
-                }
-            }
-        });
-    </script>
+          if (titleText.toLowerCase().indexOf(filter) > -1 || descriptionText.toLowerCase().indexOf(filter) > -1) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        }
+      }
+    });
+  </script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1fcd73e496d6478089f66302b75d3851","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
