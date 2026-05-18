@@ -3,450 +3,508 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)"/>
+  <meta name="theme-color" content="#0c0c0c" media="(prefers-color-scheme: dark)"/>
+
+  <title>pengo820 — Physics student & AI/agent enthusiast</title>
+  <meta name="description" content="Personal site of pengo820: physics student and AI/agent enthusiast. Projects on projectile motion, interactive physics demos, knowledge sharing, and more."/>
+  <link rel="canonical" href="https://pengo820.org/"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pengo820.org/"/>
+  <meta property="og:title" content="pengo820 — Physics student & AI/agent enthusiast"/>
+  <meta property="og:description" content="Insights, ideas, and projects from a physics student exploring AI and interactive demos."/>
+  <meta property="og:image" content="https://pengo820.org/avatar.jpg"/>
+  <meta property="og:site_name" content="pengo820.org"/>
+
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="@pengo820"/>
+  <meta name="twitter:title" content="pengo820 — Physics student & AI/agent enthusiast"/>
+  <meta name="twitter:description" content="Insights, ideas, and projects from a physics student exploring AI and interactive demos."/>
+  <meta name="twitter:image" content="https://pengo820.org/avatar.jpg"/>
+
+  <link rel="icon" href="avatar.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="avatar.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://client.crisp.chat" crossorigin>
+  <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "pengo820",
+    "url": "https://pengo820.org/",
+    "image": "https://pengo820.org/avatar.jpg",
+    "description": "Physics student and AI/agent enthusiast.",
+    "sameAs": [
+      "https://github.com/pengo820",
+      "https://twitter.com/pengo820",
+      "https://diff.network/@pengo820"
+    ]
+  }
+  </script>
+
   <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="26ea1bad-0a3c-4f63-b807-3c4dd598a970";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-  <link rel="icon" href="https://pengo820.org/avatar.png" type="image/png">
-  <title>@pengo820</title>
+
+  <script>
+    (function(){
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {}
+    })();
+  </script>
 
   <style>
     :root{
-      /* Light theme tokens */
-      --text:#0f172a;         /* slate-900 */
-      --muted:#6b7280;        /* gray-500 */
-      --primary:#2563eb;      /* blue-600 */
-      --accent:#60a5fa;       /* sky */
-      --accent-2:#a78bfa;     /* violet */
-      --accent-3:#22d3ee;     /* cyan */
-      --accent-4:#f472b6;     /* pink */
-
-      --glass:rgba(255,255,255,0.72);
-      --glass-strong:rgba(255,255,255,0.82);
-      --glass-border:rgba(17,24,39,0.08); /* subtle dark border on light bg */
-
-      --radius-lg:18px;
-      --radius-xl:26px;
-
-      --shadow-lg:0 20px 50px rgba(2,6,23,0.10);
-      --shadow-md:0 12px 28px rgba(2,6,23,0.10);
-      --shadow-sm:0 8px 18px rgba(2,6,23,0.08);
+      --bg: #fafaf7;
+      --surface: #ffffff;
+      --text: #0a0a0a;
+      --text-soft: #1f1f1f;
+      --muted: #6b6b6b;
+      --faint: #9a9a9a;
+      --hairline: rgba(0,0,0,0.10);
+      --hover: rgba(0,0,0,0.04);
+      --accent: #0a0a0a;
+    }
+    :root[data-theme="dark"]{
+      --bg: #0c0c0c;
+      --surface: #141414;
+      --text: #ededed;
+      --text-soft: #d4d4d4;
+      --muted: #8a8a8a;
+      --faint: #5a5a5a;
+      --hairline: rgba(255,255,255,0.12);
+      --hover: rgba(255,255,255,0.05);
+      --accent: #ededed;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+
     body{
-      margin:0;
-      font-family: Inter, "Helvetica Neue", Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color:var(--text);
-      background:#ffffff; /* White background per request */
-      line-height:1.55;
+      font-family: 'Inter', system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      font-feature-settings: "ss01", "cv11";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background .35s ease, color .35s ease;
     }
 
-    /* Liquid pastel blobs for gentle depth on white */
-    .decor{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:0;
-      overflow:hidden;
-    }
-    .blob{
-      position:absolute;
-      width:44vmax;
-      height:44vmax;
-      border-radius:42% 58% 63% 37% / 35% 39% 61% 65%;
-      filter: blur(40px) saturate(140%);
-      opacity:0.22;
-      mix-blend-mode:normal; /* on white, normal keeps colors visible */
-      transform-origin:center;
-      animation: float 16s ease-in-out infinite alternate, morph 28s ease-in-out infinite;
-    }
-    .blob--a{background: radial-gradient(circle at 30% 30%, rgba(96,165,250,0.55), rgba(96,165,250,0.10) 60%, transparent 70%); top:-10vmax; left:-8vmax; }
-    .blob--b{background: radial-gradient(circle at 70% 40%, rgba(167,139,250,0.50), rgba(167,139,250,0.10) 60%, transparent 70%); top:10vmax; right:-12vmax; animation-delay: -4s;}
-    .blob--c{background: radial-gradient(circle at 40% 60%, rgba(34,211,238,0.50), rgba(34,211,238,0.10) 60%, transparent 70%); bottom:-14vmax; left:10vmax; animation-delay: -8s;}
-    .blob--d{background: radial-gradient(circle at 60% 60%, rgba(244,114,182,0.46), rgba(244,114,182,0.10) 60%, transparent 70%); bottom:-10vmax; right:6vmax; animation-delay: -12s;}
-
-    @keyframes float{
-      from{ transform: translate3d(0,0,0) rotate(0deg) scale(1); }
-      to  { transform: translate3d(2vmax,-2vmax,0) rotate(8deg) scale(1.05); }
-    }
-    @keyframes morph{
-      0%{ border-radius:42% 58% 63% 37% / 35% 39% 61% 65%; }
-      50%{ border-radius:58% 42% 37% 63% / 61% 65% 35% 39%; }
-      100%{ border-radius:42% 58% 63% 37% / 35% 39% 61% 65%; }
+    .serif{
+      font-family: 'Instrument Serif', "Iowan Old Style", Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
 
-    /* Glass utility */
-    .glass{
-      background: var(--glass);
-      border:1px solid var(--glass-border);
-      backdrop-filter: blur(12px) saturate(140%);
-      -webkit-backdrop-filter: blur(12px) saturate(140%);
-      box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.5);
-    }
-    .glass:hover{ box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.6); }
+    a { color: inherit; }
 
-    .glass.sheen{ position:relative; overflow:hidden; }
-    .glass.sheen:before{
-      content:"";
-      position:absolute; inset:-1px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.28) 35%, rgba(255,255,255,0.12) 55%, transparent 70%);
-      pointer-events:none;
-      border-radius:inherit;
-      mix-blend-mode:overlay;
-    }
-
-    /* Layout container */
     .wrap{
-      position:relative;
-      z-index:1;
-      width:min(1100px, 92%);
-      margin-inline:auto;
-      padding: clamp(16px, 2vw, 24px);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(28px, 5vw, 48px) clamp(20px, 5vw, 32px) 64px;
     }
 
-    /* Header */
-    header{
-      border-radius: var(--radius-xl);
-      padding: clamp(24px, 4vw, 48px);
-      margin-top: clamp(18px, 4vw, 40px);
-      text-align:center;
+    /* ── Top bar ──────────────────────────────── */
+    .topbar{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0 28px;
+      margin-bottom: clamp(48px, 8vw, 80px);
+      border-bottom: 1px solid var(--hairline);
     }
-    header h1{
-      margin:0;
-      font-size: clamp(1.8rem, 2.8vw, 2.8rem);
-      letter-spacing: 0.2px;
-      text-shadow: 0 2px 12px rgba(37,99,235,0.12);
-      color:#0b1220;
+    .brand{
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.005em;
     }
-    header p{
-      margin: 10px 0 0;
-      font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    .topbar nav{
+      display: flex;
+      gap: clamp(18px, 3vw, 28px);
+      align-items: center;
+    }
+    .topbar nav a{
       color: var(--muted);
-      opacity:0.95;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.005em;
+      transition: color .15s ease;
     }
+    .topbar nav a:hover{ color: var(--text); }
 
-    /* Nav */
-    nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap: 18px;
-      border-radius: var(--radius-lg);
-      padding: 10px 14px;
-      margin: 16px auto 22px;
-      width: fit-content;
+    .theme-toggle{
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color .15s ease, transform .15s ease;
     }
-    nav a{
-      color:#1f2937;
-      text-decoration:none;
-      font-weight:600;
-      letter-spacing:0.2px;
-      padding:8px 12px;
-      border-radius:10px;
-      transition: color .2s ease, background .2s ease, transform .2s ease;
-    }
-    nav a:hover{ color:#111827; background: rgba(37,99,235,0.08); transform: translateY(-1px); }
+    .theme-toggle:hover{ color: var(--text); }
+    .theme-toggle:active{ transform: scale(0.94); }
+    .theme-toggle svg{ width: 16px; height: 16px; }
+    .theme-toggle .icon-sun{ display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun{ display: block; }
+    :root[data-theme="dark"] .theme-toggle .icon-moon{ display: none; }
 
-    nav form{
-      display:flex; align-items:center; gap:10px;
-      padding-left: 8px;
-      margin-left: 6px;
-      border-left:1px solid rgba(17,24,39,0.08);
+    /* ── Hero ─────────────────────────────────── */
+    .hero{
+      margin-bottom: clamp(64px, 10vw, 96px);
     }
-    nav input[type="text"]{
-      color:#111827;
-      background: var(--glass-strong);
-      border:1px solid rgba(17,24,39,0.12);
-      outline:none;
-      padding:10px 12px;
-      border-radius:12px;
-      width:min(46vw, 280px);
-      transition: border .2s ease, box-shadow .2s ease;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+    .hero-meta{
+      margin-bottom: 28px;
     }
-    nav input[type="text"]::placeholder{color:#9aa3b2}
-    nav input[type="text"]:focus{
-      border-color: rgba(37,99,235,0.55);
-      box-shadow: 0 0 0 3px rgba(37,99,235,0.20);
-    }
-    nav button{
-      border:0; cursor:pointer; color:#ffffff; font-weight:700;
-      background: linear-gradient(135deg, #60a5fa, #2563eb);
-      padding:10px 14px; border-radius:12px;
-      box-shadow: 0 8px 18px rgba(37,99,235,0.25);
-      transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
-    }
-    nav button:hover{ transform: translateY(-1px); filter:brightness(1.05); }
-    nav button:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(37,99,235,0.2); }
-
-    /* Main area */
-    .main{
-      display:grid;
-      grid-template-columns: 320px 1fr;
-      gap: 22px;
-      margin-top: 18px;
-    }
-    @media (max-width: 900px){
-      .main{ grid-template-columns: 1fr; }
-    }
-
-    .sidebar{
-      border-radius: var(--radius-xl);
-      padding: 20px;
-    }
-    .sidebar h2{
-      margin: 4px 0 10px; font-size: 1.4rem; letter-spacing:.2px; color:#0f172a;
-    }
-    .sidebar p{ color:var(--muted); margin: 8px 0 12px; }
-    .sidebar a{ color:#2563eb; text-decoration:none; font-weight:600; }
-    .sidebar a:hover{ text-decoration:underline; }
-
     .avatar{
-      width: 160px; height:160px; display:block; margin: 14px auto 0;
-      border-radius:50%;
-      object-fit:cover;
-      border: 2px solid rgba(17,24,39,0.06);
-      box-shadow:
-        0 12px 30px rgba(0,0,0,0.08),
-        0 0 0 8px rgba(17,24,39,0.02);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+    .hero h1{
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 24px;
+      color: var(--text);
+    }
+    .hero h1 em{
+      font-style: italic;
+      color: var(--text);
+    }
+    .hero .lede{
+      font-size: clamp(1.05rem, 1.6vw, 1.18rem);
+      color: var(--text-soft);
+      max-width: 56ch;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .hero .lede a{
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--hairline);
+      transition: border-color .15s ease;
+    }
+    .hero .lede a:hover{ border-bottom-color: currentColor; }
+
+    /* ── Section label ────────────────────────── */
+    .section-label{
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--faint);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .section-label-row{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+    .section-label-row .count{
+      font-size: 0.74rem;
+      color: var(--faint);
+      letter-spacing: 0.06em;
+      font-variant-numeric: tabular-nums;
     }
 
-    .main-content{ min-width: 0; }
-    .intro{
-      text-align:center;
-      border-radius: var(--radius-xl);
-      padding: 18px 18px 8px;
-      margin-bottom: 18px;
+    /* ── Projects ─────────────────────────────── */
+    .projects{ margin-bottom: clamp(64px, 10vw, 96px); }
+    .project{
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--hairline);
+      align-items: baseline;
     }
-    .intro h2{ margin:0 0 6px; font-size: 1.6rem; color:#0f172a; }
-    .intro p{ margin:0; color:var(--muted); }
+    .project:first-of-type{
+      border-top: 1px solid var(--hairline);
+    }
+    .project-num{
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--faint);
+      font-variant-numeric: tabular-nums;
+      padding-top: 6px;
+    }
+    .project-body h3{
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.5rem, 2.6vw, 1.8rem);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+    .project-body p{
+      color: var(--muted);
+      margin: 0 0 16px;
+      font-size: 0.96rem;
+      max-width: 58ch;
+      line-height: 1.55;
+    }
+    .project-links{
+      display: flex;
+      gap: 22px;
+      font-size: 0.88rem;
+      flex-wrap: wrap;
+    }
+    .project-links a{
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: 1px;
+      transition: border-color .2s ease, color .15s ease;
+    }
+    .project-links a:hover{
+      border-bottom-color: currentColor;
+    }
+    .project-links a .arrow{
+      display: inline-block;
+      transition: transform .2s ease;
+    }
+    .project-links a:hover .arrow{
+      transform: translate(2px, -2px);
+    }
+    .project-links a.muted{
+      color: var(--muted);
+    }
 
-    /* Cards grid */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 18px;
+    /* ── Contact ──────────────────────────────── */
+    .contact{ margin-bottom: clamp(56px, 8vw, 80px); }
+    .contact .lede{
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: var(--text);
     }
-    .card{
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+    .contact .lede a{
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text);
+      transition: opacity .15s ease;
     }
-    .card:hover{ transform: translateY(-4px); }
-    .card h2{ margin:4px 0 8px; font-size:1.2rem; color:#0f172a;}
-    .card p{ margin:10px 0 12px; color:var(--muted); }
-    .card a{
-      display:inline-block;
-      color:#1d4ed8; text-decoration:none; font-weight:600;
-      margin-right: 14px; padding-bottom:2px;
-      border-bottom: 1px dashed rgba(29,78,216,0.35);
-      transition: color .2s ease, border-color .2s ease, transform .15s ease;
-    }
-    .card a:hover{ color:#0b63ff; border-color:#0b63ff; transform: translateY(-1px); }
+    .contact .lede a:hover{ opacity: 0.6; }
 
-    /* Footer */
+    /* ── Footer ───────────────────────────────── */
     footer{
-      border-radius: var(--radius-lg);
-      padding: 8px 10px 12px;
-      margin: 24px 0 18px;
-      text-align:center;
-      color:#111827;
+      padding-top: 28px;
+      border-top: 1px solid var(--hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
     }
-    footer p{ margin:8px 0; opacity:0.9; }
+    footer p{
+      font-size: 0.82rem;
+      color: var(--faint);
+      margin: 0;
+      letter-spacing: 0.01em;
+    }
+    .social{ display: flex; gap: 18px; }
+    .social a{
+      color: var(--muted);
+      display: inline-flex;
+      transition: color .15s ease;
+    }
+    .social a:hover{ color: var(--text); }
+    .social svg{ width: 17px; height: 17px; fill: currentColor; display: block; }
 
-    footer .social-icons{
-      display:flex; gap:18px; padding:8px;
-      justify-content:center; align-items:center;
-      width: fit-content; margin: 8px auto;
-      background: rgba(255,255,255,0.8);
-      border:1px solid rgba(17,24,39,0.08);
-      border-radius: 999px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: var(--shadow-sm);
-    }
-    footer .social-icons a{
-      text-decoration:none; color:inherit;
-      display:flex; align-items:center; justify-content:center;
-      width:40px; height:40px;
-      border-radius:50%;
-      background: #ffffff;
-      border:1px solid rgba(17,24,39,0.06);
-      box-shadow: 0 10px 18px rgba(0,0,0,0.08);
-      transition: transform .18s ease, box-shadow .2s ease, filter .2s ease;
-    }
-    footer .social-icons a:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 14px 22px rgba(0,0,0,0.12);
-      filter: saturate(110%);
-    }
-    footer .icon{ width:22px; height:22px; fill:#374151; transition: fill .2s ease; }
-    footer .social-icons a:hover .icon{ fill:#2563eb; }
-
-    /* Apply glass to major surfaces */
-    header, nav, .sidebar, .intro, .card, footer{
-      background: var(--glass);
-      border:1px solid var(--glass-border);
-      backdrop-filter: blur(12px) saturate(140%);
-      -webkit-backdrop-filter: blur(12px) saturate(140%);
-      box-shadow: var(--shadow-sm);
+    /* ── Selection ─────────────────────────────── */
+    ::selection{
+      background: var(--text);
+      color: var(--bg);
     }
 
-    /* Fallback when blur not supported */
-    @supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))){
-      header, nav, .sidebar, .intro, .card, footer{ background: #ffffff; }
-    }
-
-    /* Motion accessibility */
+    /* ── Motion accessibility ─────────────────── */
     @media (prefers-reduced-motion: reduce){
-      .blob{ animation: none; }
-      nav a, .card, nav button{ transition: none; }
+      *, *::before, *::after{
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ── Small screens ────────────────────────── */
+    @media (max-width: 540px){
+      .topbar nav{ gap: 16px; }
+      .project{ grid-template-columns: 40px 1fr; gap: 14px; padding: 24px 0; }
+      .project-num{ padding-top: 4px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Liquid blobs background -->
-  <div class="decor" aria-hidden="true">
-    <div class="blob blob--a"></div>
-    <div class="blob blob--b"></div>
-    <div class="blob blob--c"></div>
-    <div class="blob blob--d"></div>
-  </div>
-
   <div class="wrap">
-    <header class="glass sheen">
-      <h1>Webpage of pengo820</h1>
-      <p>Insights, ideas, and projects from my world</p>
+    <header class="topbar">
+      <a href="/" class="brand">pengo820</a>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </button>
+      </nav>
     </header>
 
-    <nav class="glass sheen" aria-label="Primary">
-      <a href="https://pengo820.org">Home</a>
-      <form id="search-form" role="search" aria-label="Project search">
-        <input type="text" id="search-input" name="search" placeholder="Search projects..." aria-label="Search projects"/>
-        <button type="submit" aria-label="Run search">Search</button>
-      </form>
-    </nav>
-
-    <section class="main">
-      <aside class="sidebar glass sheen">
-        <h2>Contact Me</h2>
-        <p>
-          Feel free to reach me via email:
-          <a href="mailto:support@pengo820.org">support@pengo820.org</a>
-        </p>
-        <img src="https://pengo820.org/avatar.png" alt="Pengo820's Avatar" class="avatar">
-      </aside>
-
-      <main class="main-content">
-        <div class="intro glass sheen">
-          <h2>Welcome to My Space</h2>
-          <p>I am a  Physics student | AI &amp; agent enthusiast</p>
-          <p style="margin-top:6px">Explore my latest projects below.</p>
-        </div>
-
-        <div class="grid" id="project-grid">
-          <article class="card glass sheen">
-            <h2>Projectile Motion Simulator</h2>
-            <p>An interactive web-based tool for physics education, visualizing parabolic trajectories of projectiles under gravity with adjustable launch parameters.</p>
-            <a href="https://projectile.pengo820.org" target="_blank" rel="noopener">Visit Simulator</a>
-            <a href="https://github.com/pengo820/projectile.io" target="_blank" rel="noopener">Visit GitHub Page</a>
-          </article>
-
-          <article class="card glass sheen">
-            <h2>Example Interactive Collision</h2>
-            <p>An interactive webpage showcasing a glitch text effect and dynamic particle system reacting to mouse movements and clicks.</p>
-            <a href="https://collision.pengo820.org/" target="_blank" rel="noopener">Visit Demo</a>
-            <a href="https://github.com/pengo820/example-interactive-collision" target="_blank" rel="noopener">Visit GitHub Page</a>
-          </article>
-
-          <article class="card glass sheen">
-            <h2>Interesting Questions Sharing</h2>
-            <p>In this project, I will share some interesting questions and their solutions that I found in during my study.</p>
-            <a href="https://study.pengo820.org/" target="_blank" rel="noopener">Start Research</a>
-            <a href="https://github.com/pengo820/knowledge-sharing" target="_blank" rel="noopener">Visit GitHub Page</a>
-          </article>
-
-          <article class="card glass sheen">
-            <h2>Physical Constants</h2>
-            <p>Recorded some physical constants</p>
-            <a href="https://physical-constants.pengo820.org/" target="_blank" rel="noopener">Look For Constants</a>
-            <a href="https://github.com/pengo820/physical-constants" target="_blank" rel="noopener">Visit GitHub Page</a>
-          </article>
-
-          <article class="card glass sheen">
-            <h2>2026 New Year Blessing</h2>
-            <p>A festive interactive New Year page: click the horse to trigger fireworks and receive a random blessing message (马到成功).</p>
-            <a href="https://newyear-bless.pengo820.org/" target="_blank" rel="noopener">Open Page</a>
-            <a href="https://github.com/pengo820/new-year-2026" target="_blank" rel="noopener">Visit GitHub Page</a>
-          </article>
-        </div>
-      </main>
+    <section class="hero">
+      <div class="hero-meta">
+        <img src="avatar.jpg" alt="pengo820" class="avatar" width="56" height="56" loading="eager" decoding="async">
+      </div>
+      <h1>Notes &amp; projects<br>from <em>pengo820</em>.</h1>
+      <p class="lede">I explore questions worth pondering across the natural sciences, with an abiding curiosity for the technologies quietly taking shape around us.</p>
     </section>
 
-    <footer class="glass sheen">
-      <p>&copy; 2026 Webpage of pengo820. All rights reserved.</p>
-      <div class="social-icons">
-        <a href="https://diff.network/@pengo820" target="_blank" title="Mastodon" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21.327 8.566c0-4.339-2.843-5.61-2.843-5.61-1.433-.658-3.894-.935-6.451-.956h-.063c-2.557.021-5.016.298-6.45.956 0 0-2.843 1.271-2.843 5.61 0 .993-.019 2.181.012 3.441.103 4.243.778 8.425 4.701 9.463 1.809.479 3.362.579 4.612.51 2.268-.132 3.541-.851 3.541-.851l-.075-1.646s-1.621.511-3.441.449c-1.804-.062-3.707-.194-3.999-2.409a4.523 4.523 0 0 1-.04-.621s1.77.432 4.012.535c1.372.063 2.658-.08 3.965-.236 2.506-.299 4.688-1.843 4.962-3.254.434-2.223.398-5.424.398-5.424zm-3.353 5.59h-2.081V9.057c0-1.075-.452-1.62-1.357-1.62-1 0-1.501.647-1.501 1.927v2.791H11.07V9.364c0-1.28-.501-1.927-1.502-1.927-.905 0-1.357.545-1.357 1.62v5.099H6.13V8.903c0-1.074.273-1.927.823-2.558.566-.631 1.307-.955 2.228-.955 1.065 0 1.872.41 2.405 1.228l.518.869.519-.869c.533-.818 1.34-1.228 2.405-1.228.92 0 1.662.324 2.228.955.549.631.822 1.484.822 2.558v5.253z"/>
+    <section class="projects" id="projects">
+      <div class="section-label-row">
+        <span class="section-label">Selected work</span>
+        <span class="count">05 &mdash; 2024–2026</span>
+      </div>
+
+      <article class="project">
+        <span class="project-num">01</span>
+        <div class="project-body">
+          <h3>Projectile Motion Simulator</h3>
+          <p>An interactive web tool for physics education &mdash; visualize parabolic trajectories under gravity with adjustable launch parameters.</p>
+          <div class="project-links">
+            <a href="https://projectile.pengo820.org" target="_blank" rel="noopener">Live demo<span class="arrow">↗</span></a>
+            <a href="https://github.com/pengo820/projectile.io" target="_blank" rel="noopener" class="muted">Source<span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="project-num">02</span>
+        <div class="project-body">
+          <h3>Interactive Collision</h3>
+          <p>A playful demo featuring glitch typography and a dynamic particle system that reacts to mouse movement and clicks.</p>
+          <div class="project-links">
+            <a href="https://collision.pengo820.org/" target="_blank" rel="noopener">Live demo<span class="arrow">↗</span></a>
+            <a href="https://github.com/pengo820/example-interactive-collision" target="_blank" rel="noopener" class="muted">Source<span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="project-num">03</span>
+        <div class="project-body">
+          <h3>Interesting Questions</h3>
+          <p>A growing collection of intriguing problems I&rsquo;ve come across during my studies, along with the solutions I worked out.</p>
+          <div class="project-links">
+            <a href="https://study.pengo820.org/" target="_blank" rel="noopener">Read<span class="arrow">↗</span></a>
+            <a href="https://github.com/pengo820/knowledge-sharing" target="_blank" rel="noopener" class="muted">Source<span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="project-num">04</span>
+        <div class="project-body">
+          <h3>Physical Constants</h3>
+          <p>A quick-reference lookup for common physical constants &mdash; values, units, and uncertainties, all in one place.</p>
+          <div class="project-links">
+            <a href="https://physical-constants.pengo820.org/" target="_blank" rel="noopener">Open<span class="arrow">↗</span></a>
+            <a href="https://github.com/pengo820/physical-constants" target="_blank" rel="noopener" class="muted">Source<span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="project-num">05</span>
+        <div class="project-body">
+          <h3>2026 New Year Blessing</h3>
+          <p>A festive interactive page: click the horse to trigger fireworks and receive a random New Year blessing.</p>
+          <div class="project-links">
+            <a href="https://newyear-bless.pengo820.org/" target="_blank" rel="noopener">Open<span class="arrow">↗</span></a>
+            <a href="https://github.com/pengo820/new-year-2026" target="_blank" rel="noopener" class="muted">Source<span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-label">Get in touch</div>
+      <p class="lede">Say hello at <a href="mailto:support@pengo820.org">support@pengo820.org</a>, or find me elsewhere &mdash;</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 pengo820</p>
+      <div class="social">
+        <a href="https://github.com/pengo820" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.867 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.111-4.555-4.944 0-1.091.39-1.983 1.029-2.681-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.378.202 2.397.1 2.65.64.698 1.028 1.59 1.028 2.681 0 3.841-2.338 4.687-4.566 4.936.359.31.678.921.678 1.857 0 1.34-.012 2.421-.012 2.751 0 .268.18.58.688.482A10.013 10.013 0 0 0 22 12c0-5.523-4.477-10-10-10z"/>
           </svg>
         </a>
-        <a href="https://twitter.com/pengo820?mx=1" target="_blank" title="Twitter" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <a href="https://twitter.com/pengo820" target="_blank" rel="noopener" title="Twitter" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M22.46 5.924c-.793.352-1.644.59-2.538.697a4.48 4.48 0 0 0 1.96-2.475 8.94 8.94 0 0 1-2.828 1.084 4.48 4.48 0 0 0-7.637 4.086A12.71 12.71 0 0 1 3.112 4.62a4.49 4.49 0 0 0 1.387 5.97 4.42 4.42 0 0 1-2.03-.561v.057a4.48 4.48 0 0 0 3.6 4.392 4.48 4.48 0 0 1-2.025.077 4.49 4.49 0 0 0 4.187 3.116A8.99 8.99 0 0 1 2 19.54a12.67 12.67 0 0 0 6.89 2.021c8.274 0 12.8-6.849 12.8-12.789 0-.195-.005-.391-.014-.583A9.22 9.22 0 0 0 24 4.557a8.94 8.94 0 0 1-2.54.697z"/>
           </svg>
         </a>
-        <a href="https://github.com/pengo820" target="_blank" title="GitHub" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.867 8.166 6.839 9.489.5.092.682-.217.682-.483 
-              0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608
-              1.004.07 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.111-4.555-4.944
-              0-1.091.39-1.983 1.029-2.681-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 
-              1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.378.202 2.397.1 2.65.64.698 1.028 1.59 1.028 2.681 0 
-              3.841-2.338 4.687-4.566 4.936.359.31.678.921.678 1.857 0 1.34-.012 2.421-.012 2.751 0 .268.18.58.688.482A10.013 
-              10.013 0 0 0 22 12c0-5.523-4.477-10-10-10z"/>
-          </svg>
-        </a>
-        <a href="https://t.me/pengo820" target="_blank" title="Telegram" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2C6.477 2 2 6.477 2 12c0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zm4.74 7.388-1.783 8.413c-.134.601-.484.749-.98.466l-2.712-2.001-1.31 1.261c-.145.144-.267.266-.547.266l.197-2.793 5.087-4.596c.221-.197-.048-.308-.344-.111l-6.292 3.96-2.713-.849c-.591-.184-.603-.591.123-.873l10.617-4.093c.495-.18.927.12.768.87z"/>
+        <a href="https://diff.network/@pengo820" target="_blank" rel="noopener me" title="Mastodon" aria-label="Mastodon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.327 8.566c0-4.339-2.843-5.61-2.843-5.61-1.433-.658-3.894-.935-6.451-.956h-.063c-2.557.021-5.016.298-6.45.956 0 0-2.843 1.271-2.843 5.61 0 .993-.019 2.181.012 3.441.103 4.243.778 8.425 4.701 9.463 1.809.479 3.362.579 4.612.51 2.268-.132 3.541-.851 3.541-.851l-.075-1.646s-1.621.511-3.441.449c-1.804-.062-3.707-.194-3.999-2.409a4.523 4.523 0 0 1-.04-.621s1.77.432 4.012.535c1.372.063 2.658-.08 3.965-.236 2.506-.299 4.688-1.843 4.962-3.254.434-2.223.398-5.424.398-5.424zm-3.353 5.59h-2.081V9.057c0-1.075-.452-1.62-1.357-1.62-1 0-1.501.647-1.501 1.927v2.791H11.07V9.364c0-1.28-.501-1.927-1.502-1.927-.905 0-1.357.545-1.357 1.62v5.099H6.13V8.903c0-1.074.273-1.927.823-2.558.566-.631 1.307-.955 2.228-.955 1.065 0 1.872.41 2.405 1.228l.518.869.519-.869c.533-.818 1.34-1.228 2.405-1.228.92 0 1.662.324 2.228.955.549.631.822 1.484.822 2.558v5.253z"/>
           </svg>
         </a>
       </div>
     </footer>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-    // Search filter (unchanged logic)
-    document.getElementById('search-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const searchInput = document.getElementById('search-input');
-      const filter = (searchInput.value || "").toLowerCase();
-      const projectGrid = document.getElementById('project-grid');
-      const cards = projectGrid.getElementsByClassName('card');
-
-      for (let i = 0; i < cards.length; i++) {
-        const card = cards[i];
-        const title = card.getElementsByTagName('h2')[0];
-        const description = card.getElementsByTagName('p')[0];
-
-        if (title && description) {
-          const titleText = title.textContent || title.innerText;
-          const descriptionText = description.textContent || description.innerText;
-
-          if (titleText.toLowerCase().indexOf(filter) > -1 || descriptionText.toLowerCase().indexOf(filter) > -1) {
-            card.style.display = "";
-          } else {
-            card.style.display = "none";
+    (function(){
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch(e) {}
+      });
+      try {
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+        mq.addEventListener('change', function(e){
+          if (!localStorage.getItem('theme')) {
+            root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
           }
-        }
-      }
-    });
+        });
+      } catch(e) {}
+    })();
   </script>
+
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1fcd73e496d6478089f66302b75d3851","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
